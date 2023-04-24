@@ -1,5 +1,4 @@
-function toggleDropdown(orangeBox) {
-    const header = orangeBox.querySelector(".dropdown-header");
+function toggleDropdown(orangeBox, event) {
     const content = orangeBox.querySelector(".dropdown-content");
     if (content.style.display === "block") {
         content.style.display = "none";
@@ -25,3 +24,17 @@ function toggleDropdown(orangeBox) {
         }
     }
 }
+function toggleSelectedItem(event, item) {
+    event.stopPropagation(); // Add this line to stop event propagation
+    const orangeBox = item.closest('.orange-box');
+    const counter = orangeBox.querySelector('.circle');
+
+    if (item.classList.contains('selected')) {
+        item.classList.remove('selected');
+        counter.textContent = parseInt(counter.textContent) - 1;
+    } else {
+        item.classList.add('selected');
+        counter.textContent = parseInt(counter.textContent) + 1;
+    }
+}
+

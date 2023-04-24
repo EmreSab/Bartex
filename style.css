@@ -13,6 +13,10 @@ header {
     padding-top: 5px;
     padding-bottom: 5px;
     border-bottom: 3px solid #BC6C25;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
 
 
@@ -23,6 +27,8 @@ main {
     background-color: #606C38;
     padding: 10px;
     min-height: calc(100vh - (50px + 100px));
+    margin-top: 50px;
+    margin-bottom: 70px;
 }
 .slider-container {
     width: 100%;
@@ -36,30 +42,63 @@ main {
 }
 
 .orange-box {
+    position: relative; /* Add this line to set the reference point for absolute positioning */
+    display: flex;
+    align-items: center; /* Add this line to vertically align the text in the middle */
+    justify-content: center; /* Add this line to horizontally align the text in the middle */
     width: 300px;
     height: 50px;
     background-color: #BC6C25;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* added */
     margin: 20px auto;
     align-self: flex-start;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
+
 
 .orange-box h3 {
     color: black;
     font-size: 24px;
-    line-height: 0;
-    text-align: center; /* added */
+    text-align: center;
+    flex-grow: 1;
+    margin: 0; /* Add this line to remove any default margins on the header element */
+}
 
+.circle-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.circle {
+    position: absolute; /* Add this line to position the circle relative to the orange-box */
+    top: 50%; /* Add this line to vertically center the circle */
+    right: 10px; /* Add this line to position the circle 10px left of the side of the orange box */
+    transform: translateY(-50%); /* Add this line to adjust the vertical centering of the circle */
+    width: 25px;
+    height: 25px;
+    background-color: #283618;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FEFAE0;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .dropdown {
     position: relative;
-}
 
+}
+.orange-box .dropdown-header {
+    color: black;
+    font-size: 24px;
+    margin: 0; /* Add this line to remove any default margins on the header element */
+
+}
 .dropdown-header {
     color: black;
     font-size: 22px;
@@ -68,6 +107,7 @@ main {
 }
 
 .dropdown-content {
+
     background-color: #FEFAE0;
     display: none;
     position: absolute;
@@ -75,6 +115,9 @@ main {
     left: 0;
     min-width: 300px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.dropdown-item.selected {
+    background-color: #BC6C25;
 }
 
 
