@@ -37,4 +37,33 @@ function toggleSelectedItem(event, item) {
         counter.textContent = parseInt(counter.textContent) + 1;
     }
 }
+function increaseOz(event, element) {
+    event.stopPropagation();
+    const infoBox = element.closest('.info-box');
+    const ozText = infoBox.querySelector('.info-box-text-left');
+    let currentOz = parseFloat(ozText.textContent);
+    currentOz += 0.5;
+    ozText.textContent = currentOz.toFixed(1) + " OZ"; // Add " OZ" after the number
+}
+
+function decreaseOz(event, element) {
+    event.stopPropagation();
+    const infoBox = element.closest('.info-box');
+    const ozText = infoBox.querySelector('.info-box-text-left');
+    let currentOz = parseFloat(ozText.textContent);
+    currentOz -= 0.5;
+    if (currentOz < 0) currentOz = 0;
+    ozText.textContent = currentOz.toFixed(1) + " OZ"; // Add " OZ" after the number
+}
+
+function toggleEditMode() {
+    const main = document.querySelector('main');
+    main.classList.toggle('edit-mode');
+    const editBox = document.querySelector('.edit-box');
+    if (main.classList.contains('edit-mode')) {
+        editBox.textContent = 'Done';
+    } else {
+        editBox.textContent = 'Edit';
+    }
+}
 

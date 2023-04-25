@@ -106,6 +106,26 @@ main {
     transition: transform 0.5s ease;
     align-items: center;
 }
+.info-box-images {
+    visibility: hidden;
+}
+.edit-mode .info-box-images {
+    visibility: visible;
+}
+
+.info-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border: 1px solid black;
+    width: 300px;
+    margin-bottom: 10px; /* Add 10px space between info-boxes */
+    border-radius: 10px; /* Rounded corners for info-box */
+}
+.info-text-left {
+    text-align: left;
+}
 
 .orange-box {
     position: relative; /* Add this line to set the reference point for absolute positioning */
